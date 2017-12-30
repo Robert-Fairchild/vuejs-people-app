@@ -1,0 +1,76 @@
+/* global Vue
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My App</title>
+  <script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+  <script src="https://unpkg.com/vue-router/dist/vue-router.min.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js"></script>
+  <script src="index.js" defer></script>
+  <style>
+    .strike {
+      text-decoration: line-through;
+    }
+  </style>
+  <style>
+     
+      #map {
+        height: 100%;
+      }
+      
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+</head>
+<body>
+  <div id="app">
+    <router-view></router-view>
+  </div>
+
+     
+</body>
+</html>
+
+<template id="home-page">
+  <div>
+
+    <h1>{{ message }}</h1>
+  <div id="map"></div>
+    
+    <h1>Here are your people ({{ people.length }} total): </h1>
+    <div v-for="person in people">
+      <h2 v-on:click="toggleBio(person)">{{ person.name }}</h2>
+      <p v-bind:class="{strike: person.bioVisible}">{{ person.bio }}</p>
+      <button v-on:click="deletePerson(person)">Delete</button>
+    </div>
+
+    <h2>Add a person</h2>
+    <ul>
+      <li v-for="error in errors">{{ error }}</li>
+    </ul>
+    <div>
+      Name: <input type="text" v-model="newPerson.name">
+    </div>
+    <div>
+      Bio: <input type="text" v-model="newPerson.bio">
+    </div>
+    <div>
+      Lat: <input type="integer" v-model="newPerson.lat">
+    </div>
+    <div>
+      Lng: <input type="integer" v-model="newPerson.lng">
+    </div>
+    <div>
+      Image: <input type="file" v-on:change="uploadFile($event)">
+    </div>
+    <!-- <button v-on:click="uploadFile()">Create new person</button> -->
+
+  </div>
+</template>
