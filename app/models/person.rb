@@ -1,6 +1,9 @@
   class Person < ApplicationRecord
     has_attached_file :image
 
+    # validates :lat, presence: true
+    # validates :lng, presence: true
+
     validates :name, presence: true
     validates :bio, presence: true
     validates_attachment :image,

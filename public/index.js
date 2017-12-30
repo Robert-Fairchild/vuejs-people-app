@@ -13,9 +13,10 @@ var HomePage = {
   mounted: function() {
     axios.get("/people").then(
       function(response) {
+        this.people = response.data;
         var peopleLoc = { lat: 41.8781, lng: -87.6298 };
         var map = new google.maps.Map(document.getElementById("map"), {
-          zoom: 6,
+          zoom: 4,
           center: peopleLoc
         });
 
@@ -33,7 +34,6 @@ var HomePage = {
             infowindow.open(map, marker);
           });
         });
-        this.people = response.data;
       }.bind(this)
     );
   },
