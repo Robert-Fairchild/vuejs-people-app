@@ -22,7 +22,7 @@ var HomePage = {
 
         this.people.forEach(function(person) {
           var infowindow = new google.maps.InfoWindow({
-            content: person.bio
+            content: person.name
           });
 
           var marker = new google.maps.Marker({

@@ -17,7 +17,7 @@
         id: id,
         name: name,
         bio: bio,
-        bioVisible: true,
+        bioVisible: false,
         image: image,
         lat: lat,
         lng: lng
